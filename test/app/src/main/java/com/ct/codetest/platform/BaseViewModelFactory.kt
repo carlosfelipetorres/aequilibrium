@@ -29,6 +29,8 @@ class BaseViewModelFactory constructor(
                     mainDispather,
                     ioDispatcher,
                     transformersUseCase,
+                    createTransformerUseCase,
+                    updateTransformerUseCase,
                     deleteTransformerUseCase
                 ) as T
             }

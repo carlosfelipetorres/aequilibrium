@@ -9,7 +9,6 @@ class DeleteTransformerUseCase : KoinComponent {
     private val mRepo : Repository by inject()
 
     suspend fun processdeleteTransformerUseCase(id: String): Boolean {
-        val resp = mRepo.deleteTransformers(id)
-        return resp.code() == 204
+        return mRepo.deleteTransformers(id)
     }
 }

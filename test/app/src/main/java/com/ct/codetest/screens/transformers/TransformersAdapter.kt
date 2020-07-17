@@ -16,7 +16,7 @@ class TransformersAdapter(
     val context: Context,
     list: ArrayList<Transformer>,
     val deleteCallback: (String) -> Unit,
-    val editCallback: (String) -> Unit
+    val editCallback: (Transformer) -> Unit
 ) :
     RecyclerView.Adapter<TransformersAdapter.TransformersFragViewHolder>() {
 
@@ -65,7 +65,7 @@ class TransformersAdapter(
             deleteCallback.invoke(model.id)
         }
         holder.edit.setOnClickListener {
-            editCallback.invoke(model.id)
+            editCallback.invoke(model)
         }
     }
 

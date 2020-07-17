@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ct.codetest.R
 import com.ct.codetest.models.transformers.AllTransformers
@@ -36,7 +37,9 @@ class TransformersFragment : BaseFragment() {
                 {
                     this.mViewModel.deleteTransformer(it)
                 }, {
-                    // TODO go to edit
+                    val bundle = Bundle()
+                    bundle.putSerializable("transformer", it)
+                    findNavController().navigate(R.id.createEditFragment, bundle)
                 })
 
         transformersListRecyclerView.adapter = mRecyclerViewAdapter
@@ -45,6 +48,13 @@ class TransformersFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         this.mViewModel.requestTransformersData()
+        add.setOnClickListener {
+            findNavController().navigate(R.id.createEditFragment)
+        }
+        swipeRefresh.setOnRefreshListener {
+            swipeRefresh.isRefreshing = true
+            this.mViewModel.requestTransformersData()
+        }
         super.onViewCreated(view, savedInstanceState)
     }
 
@@ -57,11 +67,13 @@ class TransformersFragment : BaseFragment() {
                 // Error for http request
                 logD("", "LiveDataResult.Status.ERROR = ${result.response}")
                 error_holder.visibility = View.VISIBLE
+                swipeRefresh.isRefreshing = false
                 showToast("Error in getting data")
 
             }
             LiveDataWrapper.ResponseStatus.SUCCESS -> {
                 logD("", "LiveDataResult.Status.SUCCESS = ${result.response}")
+                swipeRefresh.isRefreshing = false
                 val allTransformers = result.response as AllTransformers
                 val listItems = allTransformers.transformers as ArrayList<Transformer>
                 if (listItems.isEmpty()) addFirst.visibility = View.VISIBLE

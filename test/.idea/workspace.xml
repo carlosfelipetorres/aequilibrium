@@ -7,17 +7,27 @@
   </component>
   <component name="AndroidLogFilters">
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+    <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6361d768-1aa3-453c-a8fd-6afb241c3a59" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ct/codetest/screens/transformers/CreateEditFragment.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_plus_one.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_create_edit.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/navEditor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/navEditor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ct/codetest/network/transformers/APIService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ct/codetest/network/transformers/APIService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ct/codetest/models/transformers/Transformer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ct/codetest/models/transformers/Transformer.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ct/codetest/platform/BaseViewModelFactory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ct/codetest/platform/BaseViewModelFactory.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ct/codetest/repository/Repository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ct/codetest/repository/Repository.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ct/codetest/screens/transformers/TransformersAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ct/codetest/screens/transformers/TransformersAdapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ct/codetest/screens/transformers/TransformersFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ct/codetest/screens/transformers/TransformersFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ct/codetest/usecases/DeleteTransformerUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ct/codetest/usecases/DeleteTransformerUseCase.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ct/codetest/viewmodels/TransformersViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ct/codetest/viewmodels/TransformersViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_transformers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_transformers.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/navigation_graph.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/navigation_graph.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -312,9 +322,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="181" y="384" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1594757585313">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="-55" y="-622" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1595015065862">
+      <screen x="-296" y="-1057" width="1920" height="1057" />
     </state>
+    <state x="-55" y="-622" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.23.1440.877/-296.-1057.1920.1057@-296.-1057.1920.1057" timestamp="1595015065862" />
     <state x="181" y="384" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.23.1440.877@0.23.1440.877" timestamp="1594757585313" />
     <state x="483" y="349" width="512" height="225" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1594757588652">
       <screen x="0" y="23" width="1440" height="877" />
@@ -343,61 +354,62 @@
       <screen x="-265" y="-1057" width="1920" height="1057" />
     </state>
     <state x="283" y="-767" key="AndroidCreateResourceFileDialog/0.23.1440.877/-265.-1057.1920.1057@-265.-1057.1920.1057" timestamp="1594816064871" />
-    <state width="442" height="466" key="DebuggerActiveHint" timestamp="1595002699108">
-      <screen x="-1920" y="-72" width="1920" height="1057" />
+    <state width="566" height="466" key="DebuggerActiveHint" timestamp="1595021470418">
+      <screen x="-296" y="-1057" width="1920" height="1057" />
     </state>
     <state width="442" height="466" key="DebuggerActiveHint/0.23.1440.877/-1920.-72.1920.1057@-1920.-72.1920.1057" timestamp="1595002699108" />
-    <state width="1878" height="292" key="GridCell.Tab.0.bottom" timestamp="1595014897501">
+    <state width="566" height="466" key="DebuggerActiveHint/0.23.1440.877/-296.-1057.1920.1057@-296.-1057.1920.1057" timestamp="1595021470418" />
+    <state width="1878" height="393" key="GridCell.Tab.0.bottom" timestamp="1595023021311">
       <screen x="-296" y="-1057" width="1920" height="1057" />
     </state>
     <state width="1878" height="265" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.-72.1920.1057@-1920.-72.1920.1057" timestamp="1595004069696" />
     <state width="1878" height="479" key="GridCell.Tab.0.bottom/0.23.1440.877/-265.-1057.1920.1057@-265.-1057.1920.1057" timestamp="1594990140975" />
-    <state width="1878" height="292" key="GridCell.Tab.0.bottom/0.23.1440.877/-296.-1057.1920.1057@-296.-1057.1920.1057" timestamp="1595014897501" />
+    <state width="1878" height="393" key="GridCell.Tab.0.bottom/0.23.1440.877/-296.-1057.1920.1057@-296.-1057.1920.1057" timestamp="1595023021311" />
     <state width="1398" height="276" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1594742750445" />
-    <state width="1878" height="292" key="GridCell.Tab.0.center" timestamp="1595014897500">
+    <state width="1878" height="393" key="GridCell.Tab.0.center" timestamp="1595023021310">
       <screen x="-296" y="-1057" width="1920" height="1057" />
     </state>
     <state width="1878" height="265" key="GridCell.Tab.0.center/0.23.1440.877/-1920.-72.1920.1057@-1920.-72.1920.1057" timestamp="1595004069696" />
     <state width="1878" height="479" key="GridCell.Tab.0.center/0.23.1440.877/-265.-1057.1920.1057@-265.-1057.1920.1057" timestamp="1594990140975" />
-    <state width="1878" height="292" key="GridCell.Tab.0.center/0.23.1440.877/-296.-1057.1920.1057@-296.-1057.1920.1057" timestamp="1595014897500" />
+    <state width="1878" height="393" key="GridCell.Tab.0.center/0.23.1440.877/-296.-1057.1920.1057@-296.-1057.1920.1057" timestamp="1595023021310" />
     <state width="1398" height="276" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1594742750443" />
-    <state width="1878" height="292" key="GridCell.Tab.0.left" timestamp="1595014897499">
+    <state width="1878" height="393" key="GridCell.Tab.0.left" timestamp="1595023021310">
       <screen x="-296" y="-1057" width="1920" height="1057" />
     </state>
     <state width="1878" height="265" key="GridCell.Tab.0.left/0.23.1440.877/-1920.-72.1920.1057@-1920.-72.1920.1057" timestamp="1595004069695" />
     <state width="1878" height="479" key="GridCell.Tab.0.left/0.23.1440.877/-265.-1057.1920.1057@-265.-1057.1920.1057" timestamp="1594990140974" />
-    <state width="1878" height="292" key="GridCell.Tab.0.left/0.23.1440.877/-296.-1057.1920.1057@-296.-1057.1920.1057" timestamp="1595014897499" />
+    <state width="1878" height="393" key="GridCell.Tab.0.left/0.23.1440.877/-296.-1057.1920.1057@-296.-1057.1920.1057" timestamp="1595023021310" />
     <state width="1398" height="276" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1594742750443" />
-    <state width="1878" height="292" key="GridCell.Tab.0.right" timestamp="1595014897501">
+    <state width="1878" height="393" key="GridCell.Tab.0.right" timestamp="1595023021311">
       <screen x="-296" y="-1057" width="1920" height="1057" />
     </state>
     <state width="1878" height="265" key="GridCell.Tab.0.right/0.23.1440.877/-1920.-72.1920.1057@-1920.-72.1920.1057" timestamp="1595004069696" />
     <state width="1878" height="479" key="GridCell.Tab.0.right/0.23.1440.877/-265.-1057.1920.1057@-265.-1057.1920.1057" timestamp="1594990140975" />
-    <state width="1878" height="292" key="GridCell.Tab.0.right/0.23.1440.877/-296.-1057.1920.1057@-296.-1057.1920.1057" timestamp="1595014897501" />
+    <state width="1878" height="393" key="GridCell.Tab.0.right/0.23.1440.877/-296.-1057.1920.1057@-296.-1057.1920.1057" timestamp="1595023021311" />
     <state width="1398" height="276" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1594742750444" />
-    <state width="1878" height="292" key="GridCell.Tab.1.bottom" timestamp="1595014969532">
+    <state width="1878" height="393" key="GridCell.Tab.1.bottom" timestamp="1595023019491">
       <screen x="-296" y="-1057" width="1920" height="1057" />
     </state>
     <state width="1878" height="114" key="GridCell.Tab.1.bottom/0.23.1440.877/-1920.-72.1920.1057@-1920.-72.1920.1057" timestamp="1595003195070" />
-    <state width="1878" height="292" key="GridCell.Tab.1.bottom/0.23.1440.877/-296.-1057.1920.1057@-296.-1057.1920.1057" timestamp="1595014969532" />
+    <state width="1878" height="393" key="GridCell.Tab.1.bottom/0.23.1440.877/-296.-1057.1920.1057@-296.-1057.1920.1057" timestamp="1595023019491" />
     <state width="1398" height="276" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1594742748926" />
-    <state width="1878" height="292" key="GridCell.Tab.1.center" timestamp="1595014969531">
+    <state width="1878" height="393" key="GridCell.Tab.1.center" timestamp="1595023019490">
       <screen x="-296" y="-1057" width="1920" height="1057" />
     </state>
     <state width="1878" height="114" key="GridCell.Tab.1.center/0.23.1440.877/-1920.-72.1920.1057@-1920.-72.1920.1057" timestamp="1595003195069" />
-    <state width="1878" height="292" key="GridCell.Tab.1.center/0.23.1440.877/-296.-1057.1920.1057@-296.-1057.1920.1057" timestamp="1595014969531" />
+    <state width="1878" height="393" key="GridCell.Tab.1.center/0.23.1440.877/-296.-1057.1920.1057@-296.-1057.1920.1057" timestamp="1595023019490" />
     <state width="1398" height="276" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1594742748926" />
-    <state width="1878" height="292" key="GridCell.Tab.1.left" timestamp="1595014969530">
+    <state width="1878" height="393" key="GridCell.Tab.1.left" timestamp="1595023019490">
       <screen x="-296" y="-1057" width="1920" height="1057" />
     </state>
     <state width="1878" height="114" key="GridCell.Tab.1.left/0.23.1440.877/-1920.-72.1920.1057@-1920.-72.1920.1057" timestamp="1595003195069" />
-    <state width="1878" height="292" key="GridCell.Tab.1.left/0.23.1440.877/-296.-1057.1920.1057@-296.-1057.1920.1057" timestamp="1595014969530" />
+    <state width="1878" height="393" key="GridCell.Tab.1.left/0.23.1440.877/-296.-1057.1920.1057@-296.-1057.1920.1057" timestamp="1595023019490" />
     <state width="1398" height="276" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1594742748925" />
-    <state width="1878" height="292" key="GridCell.Tab.1.right" timestamp="1595014969531">
+    <state width="1878" height="393" key="GridCell.Tab.1.right" timestamp="1595023019491">
       <screen x="-296" y="-1057" width="1920" height="1057" />
     </state>
     <state width="1878" height="114" key="GridCell.Tab.1.right/0.23.1440.877/-1920.-72.1920.1057@-1920.-72.1920.1057" timestamp="1595003195070" />
-    <state width="1878" height="292" key="GridCell.Tab.1.right/0.23.1440.877/-296.-1057.1920.1057@-296.-1057.1920.1057" timestamp="1595014969531" />
+    <state width="1878" height="393" key="GridCell.Tab.1.right/0.23.1440.877/-296.-1057.1920.1057@-296.-1057.1920.1057" timestamp="1595023019491" />
     <state width="1398" height="276" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1594742748926" />
     <state x="-1183" y="241" key="chooseDestDirectoryDialog" timestamp="1595000616621">
       <screen x="-1920" y="-72" width="1920" height="1057" />
@@ -407,11 +419,12 @@
       <screen x="-1920" y="-72" width="1920" height="1057" />
     </state>
     <state x="-1820" y="28" width="1720" height="857" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1440.877/-1920.-72.1920.1057@-1920.-72.1920.1057" timestamp="1594996930009" />
-    <state x="-1308" y="213" width="695" height="729" key="find.popup" timestamp="1595000795844">
-      <screen x="-1920" y="-72" width="1920" height="1057" />
+    <state x="316" y="-772" width="695" height="729" key="find.popup" timestamp="1595016400839">
+      <screen x="-296" y="-1057" width="1920" height="1057" />
     </state>
     <state x="-1308" y="213" width="695" height="729" key="find.popup/0.23.1440.877/-1920.-72.1920.1057@-1920.-72.1920.1057" timestamp="1595000795844" />
     <state x="347" y="-772" width="695" height="486" key="find.popup/0.23.1440.877/-265.-1057.1920.1057@-265.-1057.1920.1057" timestamp="1594819239333" />
+    <state x="316" y="-772" width="695" height="729" key="find.popup/0.23.1440.877/-296.-1057.1920.1057@-296.-1057.1920.1057" timestamp="1595016400839" />
     <state x="457" y="-892" key="refactoring.ChangeSignatureDialog" timestamp="1594819820520">
       <screen x="-265" y="-1057" width="1920" height="1057" />
     </state>
@@ -436,16 +449,6 @@
           <line>43</line>
           <option name="timeStamp" value="34" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/ct/codetest/screens/transformers/TransformersFragment.kt</url>
-          <line>85</line>
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/ct/codetest/usecases/DeleteTransformerUseCase.kt</url>
-          <line>11</line>
-          <option name="timeStamp" value="44" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
@@ -453,6 +456,10 @@
         <watch expression="position % 50" language="kotlin" />
         <watch expression="e.printStackTrace()" language="kotlin" />
         <watch expression="e.printStackTrace()" language="kotlin" />
+        <watch expression="transformer" language="kotlin" />
+        <watch expression="transformer.rank" language="kotlin" />
+        <watch expression="transformer.strength in 1..10" language="kotlin" />
+        <watch expression="transformer.rank in 1..10 &amp;&amp;             transformer.strength in 1..10 &amp;&amp;             transformer.courage in 1..10 &amp;&amp;             transformer.endurance in 1..10 &amp;&amp;             transformer.firepower in 1..10 &amp;&amp;             transformer.intelligence in 1..10 &amp;&amp;             transformer.speed in 1..10 &amp;&amp;             transformer.skill in 1..10" language="kotlin" />
       </configuration>
     </watches-manager>
   </component>

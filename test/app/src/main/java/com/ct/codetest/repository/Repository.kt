@@ -35,9 +35,10 @@ class Repository : KoinComponent {
         val token = sharedPreferences.getString("token", "")
         return mAPIService.updateTransformer("Bearer $token", transformer)
     }
-    suspend fun deleteTransformers(id: String): Response<Unit> {
+    suspend fun deleteTransformers(id: String): Boolean {
         val token = sharedPreferences.getString("token", "")
-        return mAPIService.deleteTransformers("Bearer $token", id)
+        val call = mAPIService.deleteTransformers("Bearer $token", id)
+        return call.code() == 204
     }
 
 

@@ -5,10 +5,16 @@
     android:layout_height="match_parent"
     tools:context=".screens.transformers.TransformersFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/transformersListRecyclerView"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/transformersListRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <ProgressBar
         android:id="@+id/progress_circular"
@@ -46,5 +52,14 @@
         android:gravity="center"
         android:visibility="gone"
         android:layout_gravity="center"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_plus_one"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/colorAccent"
+        android:layout_gravity="bottom|right"/>
 
 </FrameLayout>

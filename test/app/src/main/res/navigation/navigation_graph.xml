@@ -9,7 +9,11 @@
         android:id="@+id/transformersFragment"
         android:name="com.ct.codetest.screens.transformers.TransformersFragment"
         android:label="fragment_transformers"
-        tools:layout="@layout/fragment_transformers" />
+        tools:layout="@layout/fragment_transformers" >
+        <action
+            android:id="@+id/action_transformersFragment_to_createEditFragment"
+            app:destination="@id/createEditFragment" />
+    </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.ct.codetest.screens.transformers.LoginFragment"
@@ -19,4 +23,9 @@
             android:id="@+id/action_loginFragment_to_transformersFragment"
             app:destination="@id/transformersFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/createEditFragment"
+        android:name="com.ct.codetest.screens.transformers.CreateEditFragment"
+        android:label="fragment_create_edit"
+        tools:layout="@layout/fragment_create_edit" />
 </navigation>

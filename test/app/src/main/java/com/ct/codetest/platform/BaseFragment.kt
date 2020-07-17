@@ -1,5 +1,6 @@
 package com.ct.codetest.platform
 
+import android.app.Activity
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
@@ -7,12 +8,14 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.ct.codetest.contracts.AppLogger
 import com.ct.codetest.usecases.*
 import kotlinx.coroutines.Dispatchers
 import org.koin.android.ext.android.inject
+
 
 abstract class BaseFragment : Fragment(), AppLogger {
 
@@ -68,5 +71,15 @@ abstract class BaseFragment : Fragment(), AppLogger {
 
     override fun logI(tag: String, message: String) {
         Log.i(tag, message)
+    }
+
+    fun hideKeyboard() {
+        val imm: InputMethodManager =
+            requireActivity().getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        var view = requireActivity().currentFocus
+        if (view == null) {
+            view = View(activity)
+        }
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
 }
