@@ -29,7 +29,7 @@ class BaseViewModelFactory constructor(
                     mainDispather,
                     ioDispatcher,
                     transformersUseCase,
-                    sharedPreferences
+                    deleteTransformerUseCase
                 ) as T
             }
             modelClass.isAssignableFrom(LoginViewModel::class.java) -> {

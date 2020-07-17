@@ -6,6 +6,7 @@ import com.ct.codetest.models.transformers.Transformer
 import com.ct.codetest.network.transformers.APIService
 import org.koin.core.KoinComponent
 import org.koin.core.inject
+import retrofit2.Response
 
 class Repository : KoinComponent {
 
@@ -34,7 +35,7 @@ class Repository : KoinComponent {
         val token = sharedPreferences.getString("token", "")
         return mAPIService.updateTransformer("Bearer $token", transformer)
     }
-    suspend fun deleteTransformers(id: String): Any {
+    suspend fun deleteTransformers(id: String): Response<Unit> {
         val token = sharedPreferences.getString("token", "")
         return mAPIService.deleteTransformers("Bearer $token", id)
     }

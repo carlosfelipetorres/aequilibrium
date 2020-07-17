@@ -8,7 +8,8 @@ class DeleteTransformerUseCase : KoinComponent {
 
     private val mRepo : Repository by inject()
 
-    suspend fun processTransformersUseCase(id: String) : Any {
-        return mRepo.deleteTransformers(id)
+    suspend fun processdeleteTransformerUseCase(id: String): Boolean {
+        val resp = mRepo.deleteTransformers(id)
+        return resp.code() == 204
     }
 }

@@ -2,6 +2,7 @@ package com.ct.codetest.network.transformers
 
 import com.ct.codetest.models.transformers.AllTransformers
 import com.ct.codetest.models.transformers.Transformer
+import retrofit2.Response
 import retrofit2.http.*
 
 interface APIService {
@@ -22,6 +23,6 @@ interface APIService {
     suspend fun getTransformerById(@Header("Authorization") token: String, @Path("id") id: String): Transformer
 
     @DELETE("transformers/{id}")
-    suspend fun deleteTransformers(@Header("Authorization") token: String, @Path("id") id: String): Any
+    suspend fun deleteTransformers(@Header("Authorization") token: String, @Path("id") id: String): Response<Unit>
 
 }

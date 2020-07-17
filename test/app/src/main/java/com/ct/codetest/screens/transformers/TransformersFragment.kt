@@ -14,7 +14,6 @@ import com.ct.codetest.viewmodels.TransformersViewModel
 import kotlinx.android.synthetic.main.fragment_transformers.*
 
 class TransformersFragment : BaseFragment() {
-    
 
 
     lateinit var mRecyclerViewAdapter: TransformersAdapter
@@ -27,13 +26,18 @@ class TransformersFragment : BaseFragment() {
         super.onActivityCreated(savedInstanceState)
 
         this.mViewModel.mTransformersResponse.observe(viewLifecycleOwner, this.mDataObserver)
+        this.mViewModel.mDeleteTransformerResponse.observe(viewLifecycleOwner, this.mDeleteObserver)
         this.mViewModel.mLoadingLiveData.observe(viewLifecycleOwner, this.loadingObserver)
 
         mRecyclerViewAdapter =
             TransformersAdapter(
                 requireActivity(),
-                arrayListOf()
-            )
+                arrayListOf(),
+                {
+                    this.mViewModel.deleteTransformer(it)
+                }, {
+                    // TODO go to edit
+                })
 
         transformersListRecyclerView.adapter = mRecyclerViewAdapter
         transformersListRecyclerView.layoutManager = LinearLayoutManager(requireActivity())
@@ -63,6 +67,24 @@ class TransformersFragment : BaseFragment() {
                 if (listItems.isEmpty()) addFirst.visibility = View.VISIBLE
                 else addFirst.visibility = View.GONE
                 processData(listItems)
+            }
+        }
+    }
+
+    private val mDeleteObserver = Observer<LiveDataWrapper<Boolean>> { result ->
+        when (result?.responseStatus) {
+            LiveDataWrapper.ResponseStatus.LOADING -> {
+                // Loading data
+            }
+            LiveDataWrapper.ResponseStatus.ERROR -> {
+                // Error for http request
+                logD("", "LiveDataResult.Status.ERROR = ${result.response}")
+                showToast("Error in deleting data")
+
+            }
+            LiveDataWrapper.ResponseStatus.SUCCESS -> {
+                logD("", "LiveDataResult.Status.SUCCESS = ${result.response}")
+                this.mViewModel.requestTransformersData()
             }
         }
     }

@@ -1,10 +1,10 @@
 package com.ct.codetest.viewmodels
 
-import android.content.SharedPreferences
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.ct.codetest.models.transformers.AllTransformers
 import com.ct.codetest.platform.LiveDataWrapper
+import com.ct.codetest.usecases.DeleteTransformerUseCase
 import com.ct.codetest.usecases.TransformersUseCase
 import kotlinx.coroutines.*
 import org.koin.core.KoinComponent
@@ -13,10 +13,11 @@ class TransformersViewModel(
     mainDispatcher: CoroutineDispatcher,
     ioDispatcher: CoroutineDispatcher,
     private val transformersUseCase: TransformersUseCase,
-    private val sharedPreferences: SharedPreferences
+    private val deleteTransformerUseCase: DeleteTransformerUseCase
 ) : ViewModel(), KoinComponent {
 
     var mTransformersResponse = MutableLiveData<LiveDataWrapper<AllTransformers>>()
+    var mDeleteTransformerResponse = MutableLiveData<LiveDataWrapper<Boolean>>()
     val mLoadingLiveData = MutableLiveData<Boolean>()
     private val job = SupervisorJob()
     private val mUiScope = CoroutineScope(mainDispatcher + job)
@@ -37,7 +38,24 @@ class TransformersViewModel(
                 mTransformersResponse.value = LiveDataWrapper.error(e)
             }
         }
+    }
 
+    fun deleteTransformer(id: String) {
+        mUiScope.launch {
+            mDeleteTransformerResponse.value = LiveDataWrapper.loading()
+            setLoadingVisibility(true)
+            try {
+                val data = mIoScope.async {
+                    val call = deleteTransformerUseCase.processdeleteTransformerUseCase(id)
+                    return@async call
+                }.await()
+                mDeleteTransformerResponse.value = LiveDataWrapper.success(data)
+                setLoadingVisibility(false)
+            } catch (e: Exception) {
+                setLoadingVisibility(false)
+                mDeleteTransformerResponse.value = LiveDataWrapper.error(e)
+            }
+        }
     }
 
     private fun setLoadingVisibility(visible: Boolean) {

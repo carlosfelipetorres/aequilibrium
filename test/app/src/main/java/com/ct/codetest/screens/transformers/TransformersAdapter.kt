@@ -14,7 +14,9 @@ import com.ct.codetest.models.transformers.Transformer
 
 class TransformersAdapter(
     val context: Context,
-    list: ArrayList<Transformer>
+    list: ArrayList<Transformer>,
+    val deleteCallback: (String) -> Unit,
+    val editCallback: (String) -> Unit
 ) :
     RecyclerView.Adapter<TransformersAdapter.TransformersFragViewHolder>() {
 
@@ -59,6 +61,12 @@ class TransformersAdapter(
                 "Speed: ${model.speed}\n" +
                 "Skill: ${model.skill}\n"
                 Glide.with(context).load(model.teamIcon).into(holder.photo)
+        holder.delete.setOnClickListener {
+            deleteCallback.invoke(model.id)
+        }
+        holder.edit.setOnClickListener {
+            editCallback.invoke(model.id)
+        }
     }
 
     class TransformersFragViewHolder(item: View) : RecyclerView.ViewHolder(item) {
@@ -67,5 +75,7 @@ class TransformersAdapter(
         val team: TextView = item.findViewById(R.id.team)
         val rank: TextView = item.findViewById(R.id.rank)
         val photo: ImageView = item.findViewById(R.id.photo)
+        val delete: ImageView = item.findViewById(R.id.delete)
+        val edit: ImageView = item.findViewById(R.id.edit)
     }
 }
