@@ -23,29 +23,20 @@
             android:textSize="16dp"
             android:textStyle="bold"
             android:textAllCaps="true"
+            android:textColor="@color/colorPrimaryDark"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="@id/separator"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/message"
+            android:id="@+id/powers"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10"
             tools:text="Description"
+            app:layout_constraintTop_toBottomOf="@id/title"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="@id/separator"
-            app:layout_constraintTop_toBottomOf="@id/title" />
-
-        <TextView
-            android:id="@+id/rating"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            tools:text="rating"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="@id/separator"
-            app:layout_constraintTop_toBottomOf="@id/message"/>
+            app:layout_constraintRight_toRightOf="@id/separator" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/separator"
@@ -55,7 +46,7 @@
             app:layout_constraintGuide_percent="0.75"/>
 
         <TextView
-            android:id="@+id/author"
+            android:id="@+id/team"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             tools:text="author"
@@ -66,14 +57,14 @@
             app:layout_constraintLeft_toLeftOf="@id/separator"/>
 
         <TextView
-            android:id="@+id/country"
+            android:id="@+id/rank"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             tools:text="country"
             android:gravity="center"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="@id/separator"
-            app:layout_constraintTop_toBottomOf="@id/author"/>
+            app:layout_constraintTop_toBottomOf="@id/team"/>
 
         <ImageView
             android:id="@+id/photo"
@@ -83,6 +74,27 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="@id/separator"/>
+
+
+        <ImageView
+            android:id="@+id/edit"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_edit"
+            android:layout_margin="@dimen/margin_10"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/separator"
+            app:layout_constraintTop_toBottomOf="@id/rank"/>
+
+        <ImageView
+            android:id="@+id/delete"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="@dimen/margin_10"
+            android:src="@drawable/ic_delete"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rank"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

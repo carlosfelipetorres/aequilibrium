@@ -58,8 +58,10 @@ class TransformersFragment : BaseFragment() {
             }
             LiveDataWrapper.ResponseStatus.SUCCESS -> {
                 logD("", "LiveDataResult.Status.SUCCESS = ${result.response}")
-                val mainItemReceived = result.response as AllTransformers
-                val listItems = mainItemReceived.transformers as ArrayList<Transformer>
+                val allTransformers = result.response as AllTransformers
+                val listItems = allTransformers.transformers as ArrayList<Transformer>
+                if (listItems.isEmpty()) addFirst.visibility = View.VISIBLE
+                else addFirst.visibility = View.GONE
                 processData(listItems)
             }
         }

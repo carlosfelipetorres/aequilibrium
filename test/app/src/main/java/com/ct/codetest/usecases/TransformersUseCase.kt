@@ -10,7 +10,6 @@ class TransformersUseCase : KoinComponent {
     private val mRepo : Repository by inject()
 
     suspend fun processTransformersUseCase() : AllTransformers {
-
         return mRepo.getTransformersData()
     }
 }

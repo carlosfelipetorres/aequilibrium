@@ -38,4 +38,13 @@
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
+    <Button
+        android:id="@+id/addFirst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+ Add your \nfirst transformer"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_gravity="center"/>
+
 </FrameLayout>

@@ -48,19 +48,24 @@ class TransformersAdapter(
     override fun onBindViewHolder(holder: TransformersFragViewHolder, position: Int) {
         val model: Transformer = mItemList[position]
         holder.title.text = model.name
-        holder.author.text = model.team
-        holder.country.text = model.rank.toString()
-        holder.message.text = model.strength.toString()
-        holder.rating.text = model.firepower.toString()
-        Glide.with(context).load(model.teamIcon).into(holder.photo)
+        holder.team.text = "${if (model.team == "A") "Autobots" else "Descepticons"}"
+        holder.rank.text = "Rank: ${model.rank}"
+        holder.powers.text =
+                "Strength: ${model.strength} \n" +
+                "Courage: ${model.courage}\n" +
+                "Endurance: ${model.endurance}\n" +
+                "Firepower: ${model.firepower}\n" +
+                "Intelligence: ${model.intelligence}\n" +
+                "Speed: ${model.speed}\n" +
+                "Skill: ${model.skill}\n"
+                Glide.with(context).load(model.teamIcon).into(holder.photo)
     }
 
     class TransformersFragViewHolder(item: View) : RecyclerView.ViewHolder(item) {
         val title: TextView = item.findViewById(R.id.title)
-        val message: TextView = item.findViewById(R.id.message)
-        val rating: TextView = item.findViewById(R.id.rating)
-        val author: TextView = item.findViewById(R.id.author)
-        val country: TextView = item.findViewById(R.id.country)
+        val powers: TextView = item.findViewById(R.id.powers)
+        val team: TextView = item.findViewById(R.id.team)
+        val rank: TextView = item.findViewById(R.id.rank)
         val photo: ImageView = item.findViewById(R.id.photo)
     }
 }
