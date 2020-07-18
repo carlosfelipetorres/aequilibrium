@@ -51,6 +51,19 @@ class TransformersFragment : BaseFragment() {
         add.setOnClickListener {
             findNavController().navigate(R.id.createEditFragment)
         }
+        addFirst.setOnClickListener {
+            findNavController().navigate(R.id.createEditFragment)
+        }
+        battle.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putSerializable("transformers", mViewModel.transformers)
+            findNavController().navigate(R.id.battleFragment, bundle)
+        }
+        exit.setOnClickListener {
+            sharedPreferences.edit().putString("token", "").apply()
+            findNavController().popBackStack()
+            findNavController().navigate(R.id.loginFragment)
+        }
         swipeRefresh.setOnRefreshListener {
             swipeRefresh.isRefreshing = true
             this.mViewModel.requestTransformersData()
@@ -76,8 +89,13 @@ class TransformersFragment : BaseFragment() {
                 swipeRefresh.isRefreshing = false
                 val allTransformers = result.response as AllTransformers
                 val listItems = allTransformers.transformers as ArrayList<Transformer>
-                if (listItems.isEmpty()) addFirst.visibility = View.VISIBLE
-                else addFirst.visibility = View.GONE
+                if (listItems.isEmpty()) {
+                    addFirst.visibility = View.VISIBLE
+                    add.visibility = View.GONE
+                } else {
+                    addFirst.visibility = View.GONE
+                    add.visibility = View.VISIBLE
+                }
                 processData(listItems)
             }
         }

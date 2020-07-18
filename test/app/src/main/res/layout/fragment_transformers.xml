@@ -20,6 +20,7 @@
         android:id="@+id/progress_circular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:elevation="@dimen/margin_10"
         android:layout_gravity="center"
         android:visibility="invisible" />
 
@@ -59,7 +60,25 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_plus_one"
         android:layout_margin="20dp"
+        android:visibility="gone"
         android:backgroundTint="@color/colorAccent"
         android:layout_gravity="bottom|right"/>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_exit"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:layout_gravity="bottom|left"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/battle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_battle"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/red"
+        android:layout_gravity="bottom|center"/>
 </FrameLayout>

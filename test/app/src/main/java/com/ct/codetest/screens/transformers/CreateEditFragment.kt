@@ -11,6 +11,8 @@ import com.ct.codetest.platform.BaseFragment
 import com.ct.codetest.platform.LiveDataWrapper
 import com.ct.codetest.viewmodels.TransformersViewModel
 import kotlinx.android.synthetic.main.fragment_create_edit.*
+import kotlinx.android.synthetic.main.fragment_create_edit.progress_circular
+import kotlinx.android.synthetic.main.fragment_transformers.*
 import java.lang.Exception
 
 

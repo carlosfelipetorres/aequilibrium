@@ -32,6 +32,7 @@ class TransformersViewModel(
     private val mIoScope = CoroutineScope(ioDispatcher + job)
 
     var transformer: Transformer = Transformer()
+    var transformers: ArrayList<Transformer> = arrayListOf()
 
     fun requestTransformersData() {
         mUiScope.launch {
@@ -42,6 +43,7 @@ class TransformersViewModel(
                     return@async transformersUseCase.processTransformersUseCase()
                 }.await()
                 mTransformersResponse.value = LiveDataWrapper.success(data)
+                transformers = data.transformers as ArrayList<Transformer>
                 setLoadingVisibility(false)
             } catch (e: Exception) {
                 setLoadingVisibility(false)
