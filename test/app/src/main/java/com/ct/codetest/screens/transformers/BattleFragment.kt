@@ -1,8 +1,8 @@
 package com.ct.codetest.screens.transformers
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.ct.codetest.R
 import com.ct.codetest.models.transformers.Transformer
 import com.ct.codetest.platform.BaseFragment
@@ -10,12 +10,18 @@ import kotlinx.android.synthetic.main.fragment_battle.*
 
 class BattleFragment : BaseFragment() {
 
+    lateinit var mRecyclerViewAdapter: BattleAdapter
+
     override fun getLayoutId() = R.layout.fragment_battle
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val list = arguments?.getSerializable("transformers") as? ArrayList<Transformer>
+        performFight(list)
+    }
+
+    private fun performFight(list: ArrayList<Transformer>?) {
         var descepticons = list?.filter { it.team == "D" }
         var autobots = list?.filter { it.team == "A" }
 
@@ -23,33 +29,38 @@ class BattleFragment : BaseFragment() {
         autobots = autobots?.sortedByDescending { it.rank }
 
         var battles = 0
-        var result: Pair<Transformer, Transformer>? = Pair(Transformer(), Transformer())
+        var autobotWins = 0
+        var descepticonsWins = 0
+        var result: Pair<Transformer, Transformer>?
+        val results = arrayListOf<Pair<Transformer, Transformer>>()
         while ((battles < (autobots?.size ?: 0) && (battles < (descepticons?.size ?: 0)))) {
             val autobot = autobots?.get(battles)
             val descepticon = descepticons?.get(battles)
             result = autobot?.let { descepticon?.let { it1 -> fight(it, it1) } }
             if (result != null) {
-                resultsText.text =
-                    "${resultsText.text}\nBattle #${battles+1} " +
-                            "\nWinner: \"${result.first.name}\" " +
-                            "\nTeam: ${result.first.getTeamFormatted()}" +
-                            "\nLoser: \"${result.second.name}\"\n"
+                if (result.first.team == "A") autobotWins++ else descepticonsWins++
+                results.add(result)
             } else {
-                resultsText.text =
-                    "${resultsText.text}\nBattle #$battles \nTransformers Destroyed \n\"${autobot?.name}\" and \"${descepticon?.name}\"\n"
+                results.add(Pair(autobot!!, descepticon!!))
             }
             battles++
         }
 
+        mRecyclerViewAdapter = BattleAdapter(requireContext(), results)
+        battleList.adapter = mRecyclerViewAdapter
+        battleList.layoutManager = LinearLayoutManager(requireActivity())
+
         winnerText.text =
-            "${winnerText.text}\nWinner is \"${result?.first?.name}\"\nTeam: ${result?.first?.getTeamFormatted()}\n"
+            "${winnerText.text}\n${if (autobotWins == descepticonsWins) "Its a Tie" else if (autobotWins > descepticonsWins) "Winner is AUTOBOTS" else "Winner is DESCEPTICONS"}\n"
+        winnerText.text =
+            "${winnerText.text}\nSurvivors\n"
         autobots?.forEachIndexed { index, transformer ->
             if (index >= battles) winnerText.text =
-                "${winnerText.text}Survivor: ${transformer.name}\n"
+                "${winnerText.text}${transformer.name} of team ${transformer.getTeamFormatted()}\n"
         }
         descepticons?.forEachIndexed { index, transformer ->
             if (index >= battles) winnerText.text =
-                "${winnerText.text}Survivor: ${transformer.name}\n"
+                "${winnerText.text}${transformer.name} of team ${transformer.getTeamFormatted()}\n"
         }
     }
 
@@ -62,29 +73,41 @@ class BattleFragment : BaseFragment() {
         descepticon: Transformer
     ): Pair<Transformer, Transformer>? {
         return when {
-            autobot.name == "Optimus Prime" && descepticon.name == "Predaking" -> null
-            autobot.name == "Optimus Prime" && descepticon.name != "Predaking" -> Pair(
-                autobot,
-                descepticon
-            )
-            autobot.name != "Optimus Prime" && descepticon.name == "Predaking" -> Pair(
-                descepticon,
-                autobot
-            )
-            autobot.name == "Optimus Prime" && descepticon.name == "Optimus Prime" -> null
-            autobot.name == "Predaking" && descepticon.name == "Predaking" -> null
-            autobot.courage <= descepticon.courage - 4 && autobot.strength <= descepticon.strength - 3 -> Pair(
-                descepticon,
-                autobot
-            )
-            descepticon.courage <= autobot.courage - 4 && descepticon.strength <= autobot.strength - 3 -> Pair(
-                autobot,
-                descepticon
-            )
-            autobot.skill - 3 >= descepticon.skill -> Pair(autobot, descepticon)
-            descepticon.skill - 3 >= autobot.skill -> Pair(descepticon, autobot)
-            calculateOverall(autobot) < calculateOverall(descepticon) -> Pair(descepticon, autobot)
-            calculateOverall(autobot) > calculateOverall(descepticon) -> Pair(autobot, descepticon)
+            autobot.name.toLowerCase() == "optimus prime" && descepticon.name.toLowerCase() == "predaking" -> null
+            autobot.name.toLowerCase() == "optimus prime" && descepticon.name.toLowerCase() != "predaking" -> {
+                autobot.winner = true
+                Pair(autobot, descepticon)
+            }
+            autobot.name.toLowerCase() != "optimus prime" && descepticon.name.toLowerCase() == "predaking" -> {
+                descepticon.winner = true
+                Pair(descepticon, autobot)
+            }
+            autobot.name.toLowerCase() == "optimus prime" && descepticon.name.toLowerCase() == "optimus prime" -> null
+            autobot.name.toLowerCase() == "predaking" && descepticon.name.toLowerCase() == "predaking" -> null
+            autobot.courage <= descepticon.courage - 4 && autobot.strength <= descepticon.strength - 3 -> {
+                descepticon.winner = true
+                Pair(descepticon, autobot)
+            }
+            descepticon.courage <= autobot.courage - 4 && descepticon.strength <= autobot.strength - 3 -> {
+                autobot.winner = true
+                Pair(autobot, descepticon)
+            }
+            autobot.skill - 3 >= descepticon.skill -> {
+                autobot.winner = true
+                Pair(autobot, descepticon)
+            }
+            descepticon.skill - 3 >= autobot.skill -> {
+                descepticon.winner = true
+                Pair(descepticon, autobot)
+            }
+            calculateOverall(autobot) < calculateOverall(descepticon) -> {
+                descepticon.winner = true
+                Pair(descepticon, autobot)
+            }
+            calculateOverall(autobot) > calculateOverall(descepticon) -> {
+                autobot.winner = true
+                Pair(autobot, descepticon)
+            }
             else -> null
         }
     }
