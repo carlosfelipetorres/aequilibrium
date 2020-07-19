@@ -11,19 +11,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6361d768-1aa3-453c-a8fd-6afb241c3a59" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/com/ct/codetest/di/SharePrefsDITest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/batttle_transformers.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/androidTest/assets/success_resp_list.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/assets/success_resp_list.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/ct/codetest/di/MainAppInstrumentationDI.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/ct/codetest/di/MainAppInstrumentationDI.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/ct/codetest/screens/transformers/MainActivityTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/ct/codetest/screens/transformers/TransformersTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ct/codetest/app/MainApp.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ct/codetest/app/MainApp.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ct/codetest/di/SharePrefsDependency.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ct/codetest/di/SharePrefsDependency.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/ct/codetest/di/MainDIComponentTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/ct/codetest/di/MainDIComponentTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/ct/codetest/repository/RepositoryTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/ct/codetest/repository/RepositoryTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/ct/codetest/screens/transformers/MainActivityViewModelTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/ct/codetest/screens/transformers/TransformersViewModelTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/ct/codetest/screens/transformers/TransformersUseCaseTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/ct/codetest/screens/transformers/TransformersUseCaseTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/resources/success_resp_list.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/resources/success_resp_list.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +68,13 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.ct.codetest.models.transformers" />
+      <recent name="com.ct.codetest.screens.transformers" />
+      <recent name="com.ct.codetest.viewmodels" />
+      <recent name="com.ct.codetest.usecases" />
+      <recent name="com.ct.codetest.screens" />
+    </key>
     <key name="CreateKotlinClassDialog.RecentsKey">
       <recent name="com.dev.ccodetest.models.login" />
     </key>
@@ -88,12 +85,8 @@
       <recent name="com.ct.codetest.screens.reviews" />
       <recent name="com.ct.codetest.models.reviews" />
     </key>
-    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
-      <recent name="com.ct.codetest.models.transformers" />
-      <recent name="com.ct.codetest.screens.transformers" />
-      <recent name="com.ct.codetest.viewmodels" />
-      <recent name="com.ct.codetest.usecases" />
-      <recent name="com.ct.codetest.screens" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.ct.codetest.screens" />
@@ -104,7 +97,7 @@
       <recent name="$PROJECT_DIR$/app/src/main/java/com/ct/codetest/di" />
     </key>
   </component>
-  <component name="RunManager" selected="Android JUnit.codetest in app">
+  <component name="RunManager" selected="Android App.app">
     <configuration name="RepositoryTest.test_transformers_repo_retrieves_expected_data" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
       <module name="app" />
       <extension name="coverage">
@@ -371,34 +364,34 @@
     </state>
     <state width="442" height="466" key="DebuggerActiveHint/0.23.1440.877/-1920.-72.1920.1057@-1920.-72.1920.1057" timestamp="1595002699108" />
     <state width="566" height="466" key="DebuggerActiveHint/0.23.1440.877/-296.-1057.1920.1057@-296.-1057.1920.1057" timestamp="1595173397459" />
-    <state width="1398" height="209" key="GridCell.Tab.0.bottom" timestamp="1595199589359">
+    <state width="1398" height="209" key="GridCell.Tab.0.bottom" timestamp="1595199757201">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1878" height="265" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.-72.1920.1057@-1920.-72.1920.1057" timestamp="1595004069696" />
     <state width="1878" height="479" key="GridCell.Tab.0.bottom/0.23.1440.877/-265.-1057.1920.1057@-265.-1057.1920.1057" timestamp="1594990140975" />
     <state width="1878" height="302" key="GridCell.Tab.0.bottom/0.23.1440.877/-296.-1057.1920.1057@-296.-1057.1920.1057" timestamp="1595192626799" />
-    <state width="1398" height="209" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1595199589359" />
-    <state width="1398" height="209" key="GridCell.Tab.0.center" timestamp="1595199589359">
+    <state width="1398" height="209" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1595199757201" />
+    <state width="1398" height="209" key="GridCell.Tab.0.center" timestamp="1595199757200">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1878" height="265" key="GridCell.Tab.0.center/0.23.1440.877/-1920.-72.1920.1057@-1920.-72.1920.1057" timestamp="1595004069696" />
     <state width="1878" height="479" key="GridCell.Tab.0.center/0.23.1440.877/-265.-1057.1920.1057@-265.-1057.1920.1057" timestamp="1594990140975" />
     <state width="1878" height="302" key="GridCell.Tab.0.center/0.23.1440.877/-296.-1057.1920.1057@-296.-1057.1920.1057" timestamp="1595192626798" />
-    <state width="1398" height="209" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1595199589359" />
-    <state width="1398" height="209" key="GridCell.Tab.0.left" timestamp="1595199589359">
+    <state width="1398" height="209" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1595199757200" />
+    <state width="1398" height="209" key="GridCell.Tab.0.left" timestamp="1595199757200">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1878" height="265" key="GridCell.Tab.0.left/0.23.1440.877/-1920.-72.1920.1057@-1920.-72.1920.1057" timestamp="1595004069695" />
     <state width="1878" height="479" key="GridCell.Tab.0.left/0.23.1440.877/-265.-1057.1920.1057@-265.-1057.1920.1057" timestamp="1594990140974" />
     <state width="1878" height="302" key="GridCell.Tab.0.left/0.23.1440.877/-296.-1057.1920.1057@-296.-1057.1920.1057" timestamp="1595192626797" />
-    <state width="1398" height="209" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1595199589359" />
-    <state width="1398" height="209" key="GridCell.Tab.0.right" timestamp="1595199589359">
+    <state width="1398" height="209" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1595199757200" />
+    <state width="1398" height="209" key="GridCell.Tab.0.right" timestamp="1595199757201">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1878" height="265" key="GridCell.Tab.0.right/0.23.1440.877/-1920.-72.1920.1057@-1920.-72.1920.1057" timestamp="1595004069696" />
     <state width="1878" height="479" key="GridCell.Tab.0.right/0.23.1440.877/-265.-1057.1920.1057@-265.-1057.1920.1057" timestamp="1594990140975" />
     <state width="1878" height="302" key="GridCell.Tab.0.right/0.23.1440.877/-296.-1057.1920.1057@-296.-1057.1920.1057" timestamp="1595192626798" />
-    <state width="1398" height="209" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1595199589359" />
+    <state width="1398" height="209" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1595199757201" />
     <state width="1878" height="354" key="GridCell.Tab.1.bottom" timestamp="1595177493029">
       <screen x="-296" y="-1057" width="1920" height="1057" />
     </state>
@@ -441,12 +434,13 @@
       <screen x="-265" y="-1057" width="1920" height="1057" />
     </state>
     <state x="457" y="-892" key="refactoring.ChangeSignatureDialog/0.23.1440.877/-265.-1057.1920.1057@-265.-1057.1920.1057" timestamp="1594819820520" />
-    <state x="329" y="-822" width="670" height="676" key="search.everywhere.popup" timestamp="1595176498842">
-      <screen x="-296" y="-1057" width="1920" height="1057" />
+    <state x="469" y="218" width="670" height="561" key="search.everywhere.popup" timestamp="1595199748907">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="-1295" y="163" width="670" height="676" key="search.everywhere.popup/0.23.1440.877/-1920.-72.1920.1057@-1920.-72.1920.1057" timestamp="1595002424340" />
     <state x="360" y="-822" width="670" height="676" key="search.everywhere.popup/0.23.1440.877/-265.-1057.1920.1057@-265.-1057.1920.1057" timestamp="1594819845325" />
     <state x="329" y="-822" width="670" height="676" key="search.everywhere.popup/0.23.1440.877/-296.-1057.1920.1057@-296.-1057.1920.1057" timestamp="1595176498842" />
+    <state x="469" y="218" width="670" height="561" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1595199748907" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
