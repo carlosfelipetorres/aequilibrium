@@ -1,6 +1,7 @@
 package com.ct.codetest.screens.transformers
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.test.core.app.ApplicationProvider
 import com.ct.codetest.base.BaseUTTest
 import com.ct.codetest.di.configureTestAppComponent
 import com.ct.codetest.usecases.TransformersUseCase
@@ -12,29 +13,32 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
+import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import java.net.HttpURLConnection
 
 @RunWith(JUnit4::class)
-class TransformersUseCaseTest : BaseUTTest(){
+class TransformersUseCaseTest : BaseUTTest() {
 
     //Target
     private lateinit var transformersUseCase: TransformersUseCase
 
+
     @get:Rule
     var instantExecutorRule = InstantTaskExecutorRule()
 
-    val mCount = 1395
+    val mCount = 7
 
     @Before
-    fun start(){
+    fun start() {
         super.setUp()
-        //Start Koin with required dependencies
-        startKoin{ modules(configureTestAppComponent(getMockWebServerUrl()))}
+        startKoin {
+            modules(configureTestAppComponent(getMockWebServerUrl()))
+        }
     }
 
     @Test
-    fun test_transformers_use_case_returns_expected_value()= runBlocking{
+    fun test_transformers_use_case_returns_expected_value() = runBlocking {
 
         mockNetworkResponseWithFileContent("success_resp_list.json", HttpURLConnection.HTTP_OK)
         transformersUseCase = TransformersUseCase()

@@ -23,7 +23,7 @@ import org.koin.core.context.loadKoinModules
 import java.net.HttpURLConnection
 
 @RunWith(AndroidJUnit4::class)
-class MainActivityTest : BaseUITest(){
+class TransformersTest : BaseUITest(){
 
     @Rule
     @JvmField
@@ -33,10 +33,8 @@ class MainActivityTest : BaseUITest(){
     @JvmField
     var mActivityTestRule = ActivityTestRule(MainActivity::class.java, true, false)
 
-    val mNameTestOne = "Lee"
-    val mCountryOne = "United Kingdom"
-    val mNameTestTwo = "Anonymous"
-    val mCountryTwo = "Germany"
+    val mNameTestOne = "soundtrack"
+    val mNameTestTwo = "hubcap"
 
     @Before
     fun start(){
@@ -63,25 +61,14 @@ class MainActivityTest : BaseUITest(){
                     )
                 ))
 
-        onView(withId(R.id.transformersListRecyclerView))
-            .check(
-                matches(
-                    recyclerItemAtPosition(
-                        0,
-                        ViewMatchers.hasDescendant(withText(mCountryOne))
-                    )
-                ))
-
         //Scroll to last index in json
         onView(withId(R.id.transformersListRecyclerView)).perform(
-            RecyclerViewActions.scrollToPosition<TransformersAdapter.TransformersFragViewHolder>(9))
+            RecyclerViewActions.scrollToPosition<TransformersAdapter.TransformersFragViewHolder>(2))
 
-        //Check if item at 9th position is having 9th element in json
+        //Check if item at 2nf position is having 2nd element in json
         onView(withId(R.id.transformersListRecyclerView))
-            .check(matches(recyclerItemAtPosition(9, ViewMatchers.hasDescendant(withText(mNameTestTwo)))))
+            .check(matches(recyclerItemAtPosition(2, ViewMatchers.hasDescendant(withText(mNameTestTwo)))))
 
-        onView(withId(R.id.transformersListRecyclerView))
-            .check(matches(recyclerItemAtPosition(9, ViewMatchers.hasDescendant(withText(mCountryTwo)))))
 
     }
 }

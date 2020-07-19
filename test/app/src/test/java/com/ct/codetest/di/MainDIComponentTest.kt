@@ -12,6 +12,7 @@ fun configureTestAppComponent(baseApi: String)
     MockWebServerDIPTest,
     configureNetworkModuleForTest(baseApi),
     UseCaseDependency,
-    RepoDependency
+    RepoDependency,
+    preferencesModule
     )
 

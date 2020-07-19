@@ -8,5 +8,6 @@ fun generateTestAppComponent(baseApi: String)
     configureNetworkForInstrumentationTest(baseApi),
     UseCaseDependency,
     MockWebServerInstrumentationTest,
-    RepoDependency
+    RepoDependency,
+    preferencesModule
 )

@@ -1,6 +1,7 @@
 package com.ct.codetest.repository
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.test.core.app.ApplicationProvider
 import com.ct.codetest.base.BaseUTTest
 import com.ct.codetest.di.configureTestAppComponent
 import kotlinx.coroutines.runBlocking
@@ -11,6 +12,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
+import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import java.net.HttpURLConnection
 
@@ -23,13 +25,15 @@ class RepositoryTest : BaseUTTest(){
     @get:Rule
     var instantExecutorRule = InstantTaskExecutorRule()
 
-    val mCount = 1395
+    val mCount = 7
 
     @Before
     fun start(){
         super.setUp()
 
-        startKoin{ modules(configureTestAppComponent(getMockWebServerUrl()))}
+        startKoin{
+            modules(configureTestAppComponent(getMockWebServerUrl()))
+        }
     }
 
     @Test

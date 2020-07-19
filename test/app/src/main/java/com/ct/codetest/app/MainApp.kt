@@ -3,6 +3,8 @@ package com.ct.codetest.app
 import androidx.multidex.MultiDexApplication
 import com.ct.codetest.di.appComponent
 import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidFileProperties
+import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 
 open class MainApp : MultiDexApplication() {
@@ -14,7 +16,9 @@ open class MainApp : MultiDexApplication() {
 
     private fun initiateKoin() {
         startKoin{
+            androidLogger()
             androidContext(this@MainApp)
+            androidFileProperties()
             modules(provideDependency())
         }
     }

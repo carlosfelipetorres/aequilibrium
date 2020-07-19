@@ -1,12 +1,14 @@
 package com.ct.codetest.screens.transformers
 
-import android.content.SharedPreferences
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.ct.codetest.base.BaseUTTest
 import com.ct.codetest.di.configureTestAppComponent
 import com.ct.codetest.models.transformers.AllTransformers
 import com.ct.codetest.platform.LiveDataWrapper
+import com.ct.codetest.usecases.CreateTransformerUseCase
+import com.ct.codetest.usecases.DeleteTransformerUseCase
 import com.ct.codetest.usecases.TransformersUseCase
+import com.ct.codetest.usecases.UpdateTransformerUseCase
 import com.ct.codetest.viewmodels.TransformersViewModel
 import com.google.gson.Gson
 import io.mockk.MockKAnnotations
@@ -22,7 +24,7 @@ import org.junit.runners.JUnit4
 import org.koin.core.context.startKoin
 
 @RunWith(JUnit4::class)
-class MainActivityViewModelTest: BaseUTTest(){
+class TransformersViewModelTest: BaseUTTest(){
 
     @get:Rule
     var instantExecutorRule = InstantTaskExecutorRule()
@@ -34,7 +36,11 @@ class MainActivityViewModelTest: BaseUTTest(){
     @MockK
     lateinit var mTransformersUseCase: TransformersUseCase
     @MockK
-    lateinit var sharedPreferences: SharedPreferences
+    lateinit var mCreateTransformerUseCase: CreateTransformerUseCase
+    @MockK
+    lateinit var mUpdateTransformerUseCase: UpdateTransformerUseCase
+    @MockK
+    lateinit var mDeleteTransformerUseCase: DeleteTransformerUseCase
 
     @Before
     fun start(){
@@ -53,7 +59,9 @@ class MainActivityViewModelTest: BaseUTTest(){
                 mDispatcher,
                 mDispatcher,
                 mTransformersUseCase,
-                sharedPreferences
+                mCreateTransformerUseCase,
+                mUpdateTransformerUseCase,
+                mDeleteTransformerUseCase
             )
         val sampleResponse = getJson("success_resp_list.json")
         val jsonObj = Gson().fromJson(sampleResponse, AllTransformers::class.java)
@@ -66,6 +74,6 @@ class MainActivityViewModelTest: BaseUTTest(){
         assert(mTransformersViewModel.mTransformersResponse.value != null)
         assert(mTransformersViewModel.mTransformersResponse.value!!.responseStatus == LiveDataWrapper.ResponseStatus.SUCCESS)
         val testResult = mTransformersViewModel.mTransformersResponse.value as LiveDataWrapper<AllTransformers>
-        assertEquals(testResult.response?.transformers?.size, 1395)
+        assertEquals(testResult.response?.transformers?.size, 7)
     }
 }
