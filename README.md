@@ -22,13 +22,13 @@ Contains unit tests and instrumentation tests.
 After running the project, you could find in the start screen a button for "Start", click on it and start adding Transformers, you can also update or delete them. After having several Autobots and Descepticons added to your deck, click in the "Battle" (red bottom-centered) button to make them start a battle. Watch the result and keep playing.
 
 ## Screenshots
-Login
-![1](/images/1.jpg)
-Add your transformers
-![2](/images/2.jpg)
-Create
-![3](/images/3.jpg)
-Watch your transformers, delete and update them
-![4](/images/4.jpg)
-Battle!
-![5](/images/5.jpg)
+#### Login <br/>
+<img src="/images/1.jpg" width="20%"> <br/>
+#### Add your transformers<br/>
+<img src="/images/2.jpg" width="20%"> <br/>
+#### Create <br/>
+<img src="/images/3.jpg" width="20%"> <br/>
+#### Watch your transformers, delete and update them <br/>
+<img src="/images/4.jpg" width="20%"> <br/>
+#### Battle! <br/>
+<img src="/images/5.jpg" width="20%"> 
