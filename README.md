@@ -11,3 +11,14 @@ Contains unit tests and instrumentation tests.
 - MockWebServer
 - Koin (Dependency Injection)
 - Kotlin
+
+## Start the app
+
+Clone the repository https://github.com/carlosfelipetorres/aequilibrium.git
+Open project in Android Studio
+Build and compile the project
+Run project with emulator or real device
+
+After running the project, you could find in the start screen a button for "Start", click on it and start adding Transformers. After having several Autobots and Descepticons added to your deck, click in the "Battle" (red bottom-centered) button to make them start a battle. Watch the result and keep playing.
+
+## Screenshots
