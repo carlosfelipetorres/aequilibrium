@@ -14,11 +14,21 @@ Contains unit tests and instrumentation tests.
 
 ## Start the app
 
-Clone the repository https://github.com/carlosfelipetorres/aequilibrium.git
-Open project in Android Studio
-Build and compile the project
-Run project with emulator or real device
+- Clone the repository https://github.com/carlosfelipetorres/aequilibrium.git
+- Open project in Android Studio
+- Build and compile the project
+- Run project with emulator or real device
 
-After running the project, you could find in the start screen a button for "Start", click on it and start adding Transformers. After having several Autobots and Descepticons added to your deck, click in the "Battle" (red bottom-centered) button to make them start a battle. Watch the result and keep playing.
+After running the project, you could find in the start screen a button for "Start", click on it and start adding Transformers, you can also update or delete them. After having several Autobots and Descepticons added to your deck, click in the "Battle" (red bottom-centered) button to make them start a battle. Watch the result and keep playing.
 
 ## Screenshots
+Login
+![1](/images/1.jpg)
+Add your transformers
+![2](/images/2.jpg)
+Create
+![3](/images/3.jpg)
+Watch your transformers, delete and update them
+![4](/images/4.jpg)
+Battle!
+![5](/images/5.jpg)
