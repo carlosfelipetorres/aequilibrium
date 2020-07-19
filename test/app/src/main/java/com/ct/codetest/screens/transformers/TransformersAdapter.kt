@@ -50,7 +50,7 @@ class TransformersAdapter(
     override fun onBindViewHolder(holder: TransformersFragViewHolder, position: Int) {
         val model: Transformer = mItemList[position]
         holder.title.text = model.name
-        holder.team.text = "${if (model.team == "A") "Autobots" else "Descepticons"}"
+        holder.team.text = "${model.getTeamFormatted()}"
         holder.rank.text = "Rank: ${model.rank}"
         holder.powers.text =
                 "Strength: ${model.strength} \n" +

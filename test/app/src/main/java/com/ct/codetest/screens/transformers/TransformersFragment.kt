@@ -55,6 +55,12 @@ class TransformersFragment : BaseFragment() {
             findNavController().navigate(R.id.createEditFragment)
         }
         battle.setOnClickListener {
+            if (mViewModel.transformers.none { it.team == "A" } ||
+                mViewModel.transformers.none { it.team == "D" }
+            ) {
+                showToast("There is not enough Transformers for the battle")
+                return@setOnClickListener
+            }
             val bundle = Bundle()
             bundle.putSerializable("transformers", mViewModel.transformers)
             findNavController().navigate(R.id.battleFragment, bundle)

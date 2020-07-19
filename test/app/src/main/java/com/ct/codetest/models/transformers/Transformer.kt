@@ -16,4 +16,6 @@ data class Transformer (
     var skill: Int = 0,
     var speed: Int = 0,
     var strength: Int = 0
-) : Serializable
+) : Serializable {
+    fun getTeamFormatted() = if (team == "A") "Autobots" else "Descepticons"
+}

@@ -6,6 +6,7 @@ import android.view.View
 import com.ct.codetest.R
 import com.ct.codetest.models.transformers.Transformer
 import com.ct.codetest.platform.BaseFragment
+import kotlinx.android.synthetic.main.fragment_battle.*
 
 class BattleFragment : BaseFragment() {
 
@@ -21,37 +22,69 @@ class BattleFragment : BaseFragment() {
         descepticons = descepticons?.sortedByDescending { it.rank }
         autobots = autobots?.sortedByDescending { it.rank }
 
-        var a = 0
-        var d = 0
-        var winner: Transformer? = Transformer()
-        while ((a < (autobots?.size ?: 0) && (d < (descepticons?.size ?: 0)))) {
-            val autobot = autobots?.get(a)
-            val descepticon = descepticons?.get(d)
-            winner = autobot?.let { descepticon?.let { it1 -> fight(it, it1) } }
-            Log.e("-", "$winner")
-            if (winner == autobot) d++ else a++
+        var battles = 0
+        var result: Pair<Transformer, Transformer>? = Pair(Transformer(), Transformer())
+        while ((battles < (autobots?.size ?: 0) && (battles < (descepticons?.size ?: 0)))) {
+            val autobot = autobots?.get(battles)
+            val descepticon = descepticons?.get(battles)
+            result = autobot?.let { descepticon?.let { it1 -> fight(it, it1) } }
+            if (result != null) {
+                resultsText.text =
+                    "${resultsText.text}\nBattle #${battles+1} " +
+                            "\nWinner: \"${result.first.name}\" " +
+                            "\nTeam: ${result.first.getTeamFormatted()}" +
+                            "\nLoser: \"${result.second.name}\"\n"
+            } else {
+                resultsText.text =
+                    "${resultsText.text}\nBattle #$battles \nTransformers Destroyed \n\"${autobot?.name}\" and \"${descepticon?.name}\"\n"
+            }
+            battles++
         }
 
-        Log.e("-", "$a $d $winner")
+        winnerText.text =
+            "${winnerText.text}\nWinner is \"${result?.first?.name}\"\nTeam: ${result?.first?.getTeamFormatted()}\n"
+        autobots?.forEachIndexed { index, transformer ->
+            if (index >= battles) winnerText.text =
+                "${winnerText.text}Survivor: ${transformer.name}\n"
+        }
+        descepticons?.forEachIndexed { index, transformer ->
+            if (index >= battles) winnerText.text =
+                "${winnerText.text}Survivor: ${transformer.name}\n"
+        }
     }
 
     private fun calculateOverall(transformer: Transformer): Int {
         return transformer.strength + transformer.intelligence + transformer.speed + transformer.endurance + transformer.firepower
     }
 
-    private fun fight(autobot: Transformer, descepticon: Transformer): Transformer? {
+    private fun fight(
+        autobot: Transformer,
+        descepticon: Transformer
+    ): Pair<Transformer, Transformer>? {
         return when {
             autobot.name == "Optimus Prime" && descepticon.name == "Predaking" -> null
-            autobot.name == "Optimus Prime" && descepticon.name != "Predaking" -> autobot
-            autobot.name != "Optimus Prime" && descepticon.name == "Predaking" -> descepticon
+            autobot.name == "Optimus Prime" && descepticon.name != "Predaking" -> Pair(
+                autobot,
+                descepticon
+            )
+            autobot.name != "Optimus Prime" && descepticon.name == "Predaking" -> Pair(
+                descepticon,
+                autobot
+            )
             autobot.name == "Optimus Prime" && descepticon.name == "Optimus Prime" -> null
             autobot.name == "Predaking" && descepticon.name == "Predaking" -> null
-            autobot.courage <= descepticon.courage - 4 && autobot.strength <= descepticon.strength - 3 -> descepticon
-            descepticon.courage <= autobot.courage - 4 && descepticon.strength <= autobot.strength - 3 -> autobot
-            autobot.skill - 3 >= descepticon.skill -> autobot
-            descepticon.skill - 3 >= autobot.skill -> descepticon
-            calculateOverall(autobot) < calculateOverall(descepticon) -> descepticon
-            calculateOverall(autobot) > calculateOverall(descepticon) -> autobot
+            autobot.courage <= descepticon.courage - 4 && autobot.strength <= descepticon.strength - 3 -> Pair(
+                descepticon,
+                autobot
+            )
+            descepticon.courage <= autobot.courage - 4 && descepticon.strength <= autobot.strength - 3 -> Pair(
+                autobot,
+                descepticon
+            )
+            autobot.skill - 3 >= descepticon.skill -> Pair(autobot, descepticon)
+            descepticon.skill - 3 >= autobot.skill -> Pair(descepticon, autobot)
+            calculateOverall(autobot) < calculateOverall(descepticon) -> Pair(descepticon, autobot)
+            calculateOverall(autobot) > calculateOverall(descepticon) -> Pair(autobot, descepticon)
             else -> null
         }
     }
